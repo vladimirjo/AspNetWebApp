@@ -10,6 +10,8 @@ builder.Services.AddDbContext<DataContext>(opts =>
     opts.EnableSensitiveDataLogging(true);
 });
 
+builder.Services.AddCors();
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
