@@ -26,9 +26,9 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task SaveProducts([FromBody] Product product)
+    public async Task SaveProducts([FromBody] ProductBindingTarget target)
     {
-        await context.Products.AddAsync(product);
+        await context.Products.AddAsync(target.ToProduct());
         await context.SaveChangesAsync();
     }
 
